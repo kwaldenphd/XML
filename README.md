@@ -266,7 +266,7 @@ The root element of this document is <books>, followed by a series of <book> chi
   
 Each `<book>` has an attribute `@category` that describes the subject of the book, a `<title>` (with an attribute `@language`), `<author>` (with child elements `<firstName>` and `<lastName>`), and a publication `<year>`.
 
-[IMAGE]
+<p align="center"><a href="https://github.com/kwaldenphd/XML/blob/master/images/Image_7.jpg?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/XML/blob/master/images/Image_7.jpg?raw=true" /></a></p>
 
 We can represent the structure generically in a graph, demonstrating the hierarchical structure of the XML document.
 
@@ -571,7 +571,7 @@ Geany doesn’t have an XSLT transformation tool built in as of this moment (Gea
 
 <blockquote>Q5: Copy and paste the XML and XSL files above into the validator and compare the resulting HTML to my results. Look closely at the XML document, XSL document, and HTML transformation, and explain how these three documents work together in your own words.</blockquote>
 
-[IMAGE]
+<p align="center"><a href="https://github.com/kwaldenphd/XML/blob/master/images/Image_15.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/XML/blob/master/images/Image_15.png?raw=true" /></a></p>
 
 If we paste the transformation into a new HTML document in Geany and open that file in a browser, we can see the HTML document generated from the XML file.
 
