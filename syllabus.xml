@@ -1,0 +1,16 @@
+<course>
+<department>Computer Science</department>
+<courseNumber>105</courseNumber>
+<courseName>The Digital Age</courseName>
+<day>M, W, F</day>
+<startTime>2:30</startTime>
+<endTime>3:50</endTime>
+<room>S3321</room>
+<building>HSSC</building>
+<instructor>Katherine Walden</instructor>
+<officeRoom>Digital Liberal Arts Laboratory</officeRoom>
+<officeBuilding>Forum</officeBuilding>
+<email>waldenka@grinnell.edu</email>
+<officeHours>2-4pm, Thursdays</officeHours>
+<mentor>Anushka Kulshreshtha</mentor>
+</course>
