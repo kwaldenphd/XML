@@ -31,10 +31,14 @@ XML is designed to store and transport data, it does not DO anything - XML is si
 
 According to W3C.....
 
-*XML and HTML were designed with different goals:
-*- XML was designed to carry data - with a focus on what data is
-*- HTML was designed to display data - with focus on how data looks
-*- XML tags are not predefined like HTML tags are
+<i>
+XML and HTML were designed with different goals:
+<ul>
+	<li>XML was designed to carry data - with a focus on what data is</li>
+	<li>HTML was designed to display data - with focus on how data looks</li>
+	<li>XML tags are not predefined like HTML tags are</li>
+	</ul>
+</i>
 
 Explanation from: http://www.w3schools.com/xml/xml_whatis.asp
 
