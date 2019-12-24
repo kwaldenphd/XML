@@ -312,15 +312,13 @@ If the elements in the document match these rules, then the document is valid. T
 ]>
 ```
 
-We can also create a new DTD within an XML file. 
-
-We can add a few lines to the beginning of the note XML document. 
+We can also create a new DTD within an XML file. We can add a few lines to the beginning of the note XML document. 
 
 First we declare the Document Type course. This is the root element for this file. 
 
 What follows are the definitions for each of the elements that a course document can contain. 
 
-The root element <syllabus> is also defined as an element followed by all of the child elements in parenthesis. 
+The root element `<course>` is also defined as an element followed by all of the child elements in parenthesis. 
 
 We could also save these few lines to a separate file and then reference the DTD as we did with the HTML document. 
 
@@ -397,11 +395,11 @@ You can take a look at a sample metadata schema's DTD (Dublin Core) at http://du
 
 We can add attributes to the DTD as well. 
 
-Here we've added @type back into the XML document. 
+Here we've added `@type` back into the XML document. 
 
-You’ll see the ATTLIST declaration for the attribute type associated with the element instructor. 
+You’ll see the `ATTLIST` declaration for the attribute type associated with the element instructor. 
 
-Type is followed by four choices for @type: assistant_professor, associate_professor, full_professor, adjunct. 
+Type is followed by four choices for `@type: assistant_professor, associate_professor, full_professor, adjunct`. 
 
 With this declaration, one of these types must follow the element instructor for the XML document to be valid.
 
@@ -461,7 +459,7 @@ XML is a powerful tool for marking up or encoding documents. Unlike HTML, XML do
 </books>
 ```
 
-Let’s take another look at books.xml. 
+Let’s take another look at `books.xml`. 
 
 We've added a DTD at the beginning of the file so that our XML is well formed and valid.
 
@@ -493,12 +491,6 @@ exclude-result-prefixes="xs" version="2.0">
   </xsl:template>
 </xsl:stylesheet>
 ```
-Now, let’s take a look at the XSL file created for the transformation.
-
-An XSLT file uses the file extension .XSL. Notice that it begins with the same xml declaration `<?xml version="1.0" encoding="UTF-8"?>`. 
-
-The next line identifies the file as an XLS Stylesheet and declares the XSL namespace: 
-
 ```XML
 <xsl:stylesheet
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
@@ -507,17 +499,23 @@ The next line identifies the file as an XLS Stylesheet and declares the XSL name
                 version="2.0">
 ```
 
-The line <xsl:output method="html"/> defines the output type. 
+Now, let’s take a look at the XSL file created for the transformation.
+
+An XSLT file uses the file extension .XSL. Notice that it begins with the same xml declaration `<?xml version="1.0" encoding="UTF-8"?>`. 
+
+The next line identifies the file as an XLS Stylesheet and declares the XSL namespace: 
+
+The line `<xsl:output method="html"/>` defines the output type. 
 
 We can output to XML, HTML, or text. 
 
 In this case, we are outputting to HTML. 
 
-Notice here that the closing tag /> has become part of the opening tag. 
+Notice here that the closing tag `/>` has become part of the opening tag. 
 
-That is, rather than <xsl:output method="html"></xsl:output> we can close the tag within the same set of brackets because there is no data between the opening and closing tags.
+That is, rather than `<xsl:output method="html"></xsl:output>` we can close the tag within the same set of brackets because there is no data between the opening and closing tags.
 
-Next we see <xsl:template match="books">. 
+Next we see `<xsl:template match="books">`. 
 
 This selects the top level of the hierarchy within the XML document that we would like to work with, or the root element. 
 
@@ -533,17 +531,17 @@ We have the basic HTML elements that we reviewed in the last project `<head>`, `
   
 You can include any HTML elements and additional text that you would like in your transformation. 
 
-If we want to create a list of the titles and authors from the books.xml, we start with a <xsl:for-each select="book"> 
+If we want to create a list of the titles and authors from the `books.xml`, we start with a `<xsl:for-each select="book">`.
 
 This sets us up to pull data from each of the book elements within the XML document. 
 
-This for-each expression is a loop. We will learn more about loops in the Python lab.
+This `for-each` expression is a loop. We will learn more about loops in the Python lab.
 
-The XSL document will gather the requested data until it runs out of <book> elements to select from. 
+The XSL document will gather the requested data until it runs out of `<book>` elements to select from. 
   
-Between the <xsl:for-each select="book"> and closing </xsl:for-each> you see the bits of code that select the data that we want, the authors first and last names (enclosed in another set of for-each elements because we have more than one author in some instances) and the book title. 
+Between the `<xsl:for-each select="book">` and closing `</xsl:for-each>` you see the bits of code that select the data that we want, the authors' first and last names (enclosed in another set of for-each elements because we have more than one author in some instances) and the book title. 
 
-The entire expression is enclosed in <p> tags. 
+The entire expression is enclosed in `<p>` tags. 
   
 If you look at the html transformation you will see that this places each author name and title combination in a `<p>`.
 
