@@ -63,9 +63,26 @@ Explanation from: http://www.w3schools.com/xml/xml_whatis.asp
   </tr>
 </table>
   
-[IMAGE]
+```XML
+<course>
+	<department>Computer Science</department>
+	<courseNumber>105</courseNumber>
+	<courseName>The Digital Age</courseName>
+	<day>M, W, F</day>
+	<startTime>2:30</startTime>
+	<endTime>3:50</endTime>
+	<room>S3321</room>
+	<building>HSSC</building>
+	<instructor>Katherine Walden</instructor>
+	<officeRoom>Digital Liberal Arts Laboratory</officeRoom>
+	<officeBuilding>Forum</officeBuilding>
+	<email>waldenka@grinnell.edu</email>
+	<officeHours>2-4pm, Thursdays</officeHours>
+	<mentor>Anushka Kulshreshtha</mentor>
+</course>
+```
   
-I can create an L document describing the information in this table.
+We can create an XML document describing the information in this table.
   
 Notice here that each piece of information is enclosed in a set of tags just like HTML. 
 
@@ -73,19 +90,36 @@ Each tag has an opening and closing tag. These are called elements.
 
 However, unlike HTML, we can define whatever elements that we’d like to use to describe the data. 
 
-Open `yllabus.xml` 
+Open `syllabus.xml` 
 
 You’ll see that the file renders in your browser exactly as shown above. This is because XML is only used to describe the data, it doesn’t provide instructions to the browser like HTML does.
   
-[IMAGE]
+```XML
+<course>
+	<department>Computer Science</department>
+	<courseNumber>105</courseNumber>
+	<courseName>The Digital Age</courseName>
+	<day>M, W, F</day>
+	<startTime>2:30</startTime>
+	<endTime>3:50</endTime>
+	<room>S3321</room>
+	<building>HSSC</building>
+	<instructor type="lecturer">Katherine Walden</instructor>
+	<officeRoom>Digital Liberal Arts Laboratory</officeRoom>
+	<officeBuilding>Forum</officeBuilding>
+	<email>waldenka@grinnell.edu</email>
+	<officeHours>2-4pm, Thursdays</officeHours>
+	<mentor>Anushka Kulshreshtha</mentor>
+</course>
+```
 
 In addition to declaring elements, each element can be further defined with attributes. 
 
-In the first example I used the element <instructor> to describe my role in the course. 
+In the first example, I used the element <instructor> to describe my role in the course. 
   
 In this second example, I’ve added the type “lecturer" to further describe the instructor tag.
 
-Like the elements, I can define any attributes that I like. 
+Like the elements, we can define any attributes. 
 
 An attribute is declared within the opening tag for the element and is followed by the attribute (in this example, `type`) and the value enclosed in quotation marks (in this example, `“assistant_professor”`). 
 
@@ -97,9 +131,9 @@ We could imagine other values for @type, including `“assistant_professor"`, `"
 
 So, why would we want to markup all of this information in XML? 
 
-Well, imagine that I have list of all of the different courses taught at Grinnell. 
+Well, imagine that we have a list of all of the different courses taught at Grinnell. 
 
-If we had all of this information marked up in XML, we can run queries against the data. 
+If we had all of this information marked up in XML, we could run queries against the data. 
 
 For example, we could search for all of the courses taught by Jerod Weinman, or all of the courses taught by assistant professors, or find all of the courses taught on Mondays, etc. 
 
@@ -107,13 +141,31 @@ This is the power of encoding data in XML.
 
 # XML Structure
 
-[IMAGE]
-
 XML is not as strict as HTML in terms of what is required to be well formed and valid. 
 
 XML requires a single declaration of the document type at the beginning of the file `<?xml version=”1.0” encoding=”UTF-8”?>`. 
 
 Like the declaration in HTML, this declaration identifies the document as an XML document to both humans and computers.
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<course>
+	<department>Computer Science</department>
+	<courseNumber>105</courseNumber>
+	<courseName>The Digital Age</courseName>
+	<day>M, W, F</day>
+	<startTime>2:30</startTime>
+	<endTime>3:50</endTime>
+	<room>S3321</room>
+	<building>HSSC</building>
+	<instructor type="lecturer">Katherine Walden</instructor>
+	<officeRoom>Digital Liberal Arts Laboratory</officeRoom>
+	<officeBuilding>Forum</officeBuilding>
+	<email>waldenka@grinnell.edu</email>
+	<officeHours>2-4pm, Thursdays</officeHours>
+	<mentor>Anushka Kulshreshtha</mentor>
+</course>
+```
 
 In this statement we have declared the XML version and the encoding standard used. 
 
@@ -126,7 +178,17 @@ In HTML this was the `<html>` element. The document opened with an `<html>` and 
 
 Because XML allows us to create whatever element’s we’d like, the name of the root element is not specified. In our example above, the root element is `<course>`. The file opens with `<course>` and closes with `</course>` and all of the other elements are nested in-between.
 
-[IMAGE]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <child>
+    <subchild>xome text</subchild>
+  </child>
+  <child>
+    <subchild>some more text</subchild>
+  </child>
+</root>
+```
 
 The root element is the `parent` element to all of the other elements within an XML document. 
 
@@ -134,10 +196,66 @@ The elements are arranged hierarchically: `parent` elements have `child` element
 
 The indentation is used to indicate the hierarchical structure of an XML document.
 
+A well-formed and valid XML file must conform to the following rules:
+- Have an open XML declaration <?xml version="1.0" encoding="UTF-8"?>
+- Have a root element
+- Each XML element must have and opening and closing tag
+- XML tags are case sensitive
+- XML elements must be properly nested
+- XML attribute values must be quoted
+
+
 # XML Example 2
 
-[IMAGE]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books [
+<!ELEMENT books (book+)>
+<!ELEMENT book (title,author+,year)>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title type CDATA "lang">
+<!ELEMENT author (firstName,lastName)>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>
+<!ATTLIST book category CDATA #REQUIRED>
+<!ATTLIST title lang CDATA #REQUIRED>
+]>
 
+<books>
+  <book category="HTML">
+    <title lang="en">HTML and XHTML: The Definitive Guide</title>
+    <author>
+      <firstName>Bill</firstName>
+      <lastName>Kennedy</lastName>
+    </author>
+    <author>
+      <firstName>Chuck</firstName>
+      <lastName>Musciano</lastName>
+    </author>
+    <year>2006</year>
+  </book>
+  <book category="CSS">
+    <title lang="en">CSS: The Definitive Guide</title>
+    <author>
+      <firstName>Eric</firstName>
+      <lastName>Meyer</lastName>
+    </author>
+    <year>2007</year>
+  </book>
+  <book category="XML">
+    <title lang="en">Learning XML</title>
+    <author>
+      <firstName>Erik</firstName>
+      <lastName>Ray</lastName>
+    </author>
+    <year>2003</year>
+  </book>
+</books>
+```
 Let’s look at a more extensive example to illustrate the basic XML syntax. 
 
 Here I’ve created a file describing books related to XML, HTML, and CSS.
@@ -156,8 +274,9 @@ We can represent the structure generically in a graph, demonstrating the hierarc
 
 The last aspect of XML that we want to discuss is the DTD or Document Type Definition. 
 
-[IMAGE]
-
+```HTML
+<!DOCTYPE html PBULIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd?>
+```
 We looked at the DTD for HTML last week. 
 
 The DTD provides the data structure or the rules the document. We can think about the DTD as the blueprint for a specific document type.
@@ -168,7 +287,26 @@ When validating a document with an associated DTD, the validator will reach out 
 
 If the elements in the document match these rules, then the document is valid. This is an example of an external DTD. 
 
-[IMAGE]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE course [
+<!ELEMENT course (department,courseNumber,courseName,day,startTime,endTime,room,building,instructor, officeNumber,officeBuilding,email,officeHours,courseMentor)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT courseNumber (#PCDATA)>
+<!ELEMENT courseName (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT startTime (#PCDATA)>
+<!ELEMENT endTime (#PCDATA)>
+<!ELEMENT room (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT instructor (#PCDATA)>
+<!ELEMENT officeNumber (#PCDATA)>
+<!ELEMENT officeBuilding (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT officeHours (#PCDATA)>
+<!ELEMENT courseMentor (#PCDATA)>
+]>
+```
 
 We can also create a new DTD within an XML file. 
 
@@ -186,8 +324,43 @@ For now, we’ll stick with the inline example. These few lines define the eleme
 
 To be valid, we cannot deviate from this structure. This is the blueprint for the syllabus XML document.
 
-[CODE BLOCK]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE course [
+<!ELEMENT course (department,courseNumber,courseName,day,startTime,endTime,room,building,instructor, officeNumber,officeBuilding,email,officeHours,courseMentor)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT courseNumber (#PCDATA)>
+<!ELEMENT courseName (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT startTime (#PCDATA)>
+<!ELEMENT endTime (#PCDATA)>
+<!ELEMENT room (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT instructor (#PCDATA)>
+<!ELEMENT officeNumber (#PCDATA)>
+<!ELEMENT officeBuilding (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT officeHours (#PCDATA)>
+<!ELEMENT courseMentor (#PCDATA)>
+]>
 
+<course>
+	<department>Computer Science</department>
+	<courseNumber>105</courseNumber>
+	<courseName>The Digital Age</courseName>
+	<day>M, W, F</day>
+	<startTime>2:30</startTime>
+	<endTime>3:50</endTime>
+	<room>S3321</room>
+	<building>HSSC</building>
+	<instructor type="lecturer">Katherine Walden</instructor>
+	<officeRoom>Digital Liberal Arts Laboratory</officeRoom>
+	<officeBuilding>Forum</officeBuilding>
+	<email>waldenka@grinnell.edu</email>
+	<officeHours>2-4pm, Thursdays</officeHours>
+	<mentor>Anushka Kulshreshtha</mentor>
+</course>
+```
 Copy and paste the  text and run a validation check with the XML Validator https://www.xmlvalidation.com.
 
 <blockquote>Q3: Now add another set of elements to this document that have not been declared in the DTD or changing the name of one of the elements (change instructor to professor) and re-validate the document. What happens? Why?</blockquote>
@@ -196,7 +369,27 @@ DTDs ensure that we conform to the standards of the schema that we have selected
 
 You can take a look at a sample metadata schema's DTD (Dublin Core) at http://dublincore.org/documents/2002/07/31/dcmes-xml/dcmes-xml-dtd.shtml. All of the metadata standards have a DTD that ensure that your XML documents conform to the standard. 
 
-[IMAGES]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE course [
+<!ELEMENT course (department,courseNumber,courseName,day,startTime,endTime,room,building,instructor, officeNumber,officeBuilding,email,officeHours,courseMentor)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT courseNumber (#PCDATA)>
+<!ELEMENT courseName (#PCDATA)>
+<!ELEMENT day (#PCDATA)>
+<!ELEMENT startTime (#PCDATA)>
+<!ELEMENT endTime (#PCDATA)>
+<!ELEMENT room (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+<!ELEMENT instructor (#PCDATA)>
+<!ATTLIST instructor type (assistant_professor|associate_professor|full_professor|lecturer)
+<!ELEMENT officeNumber (#PCDATA)>
+<!ELEMENT officeBuilding (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT officeHours (#PCDATA)>
+<!ELEMENT courseMentor (#PCDATA)>
+]>
+```
 
 We can add attributes to the DTD as well. 
 
@@ -214,7 +407,55 @@ XML is a powerful tool for marking up or encoding documents. Unlike HTML, XML do
 
 <blockquote>Read more on XSLT at http://www.w3schools.com/xsl/xsl_intro.asp</blockquote>
 
-[CODE BLOCK]
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books [
+<!ELEMENT books (book+)>
+<!ELEMENT book (title,author+,year)>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title type CDATA "lang">
+<!ELEMENT author (firstName,lastName)>
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>
+<!ATTLIST book category CDATA #REQUIRED>
+<!ATTLIST title lang CDATA #REQUIRED>
+]>
+
+<books>
+  <book category="HTML">
+    <title lang="en">HTML and XHTML: The Definitive Guide</title>
+    <author>
+      <firstName>Bill</firstName>
+      <lastName>Kennedy</lastName>
+    </author>
+    <author>
+      <firstName>Chuck</firstName>
+      <lastName>Musciano</lastName>
+    </author>
+    <year>2006</year>
+  </book>
+  <book category="CSS">
+    <title lang="en">CSS: The Definitive Guide</title>
+    <author>
+      <firstName>Eric</firstName>
+      <lastName>Meyer</lastName>
+    </author>
+    <year>2007</year>
+  </book>
+  <book category="XML">
+    <title lang="en">Learning XML</title>
+    <author>
+      <firstName>Erik</firstName>
+      <lastName>Ray</lastName>
+    </author>
+    <year>2003</year>
+  </book>
+</books>
+```
 
 Let’s take another look at books.xml. 
 
@@ -222,8 +463,32 @@ We've added a DTD at the beginning of the file so that our XML is well formed an
 
 <blockquote>Q4: In the example above, some of the element declarations are followed by a +. Using your knowledge of XML and DTD, can you hypothesize what these + might be indicating in the DTD?</blockquote>
 
-[CODE BLOCK]
-
+```XML 
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+exclude-result-prefixes="xs" version="2.0">
+<xsl:output method="html"/>
+  <xsl:template match="books">
+    <html>
+      <head>
+        <title>Recommended Books</title>
+        <link rel="stylesheet" type="text/css" href="exampleStyle.css"/>
+      </head>
+      <body>
+        <h1>Recommended Books</h1>
+        <xsl:for-each select="book">
+          <p>
+            <xsl:for-each select="author">
+              <xsl:value-of select="firstName"/>&#160;<xsl:value-of                                                                    select="lastName"/>,
+            </xsl:for-each>
+            <i><xsl:value-of select="title"/></i>
+          </p>
+        </xsl:for-each>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
+```
 Now, let’s take a look at the XSL file created for the transformation.
 
 An XSLT file uses the file extension .XSL. Notice that it begins with the same xml declaration
@@ -231,10 +496,13 @@ An XSLT file uses the file extension .XSL. Notice that it begins with the same x
 
 The next line identifies the file as an XLS Stylesheet and declares the XSL namespace: 
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-exclude-result-prefixes="xs"
-version="2.0">.
+```XML
+<xsl:stylesheet
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+                exclude-result-prefixes="xs"
+                version="2.0">
+```
 
 The line <xsl:output method="html"/> defines the output type. 
 
@@ -278,7 +546,24 @@ If you look at the html transformation you will see that this places each author
 
 <blockquote>Note the &#160 in the XSL file. This is the HTML code for a non-breaking space. It’s also represented as &nbsp; in the HTML transformation. You will see in many languages some characters are reserved and mean something different in the context of the code, so if we want to use the characters without the computer parsing the character, we have to use other means of referencing the characters that we want the computer to type. Ampersands are also reserved. To use an & in HTML or XML you must type &amp; or &#38;. See more at https://www.w3schools.com/html/html_entities.asp.</blockquote>
 
-[CODE BLOCK]
+```HTML
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Recommended Books</title>
+    <link rel="stylesheet" type="text/css" href="exampleStyle.css">
+  </head>
+  <body>
+    <h1>Recommended Books</h1>
+    <p>Bill&nbsp;Kennedy, Chuck&nbsp;Musciano,
+      <i>HTML and XHTML: The Definitive Guide</i></p>
+    <p>Eric&nbsp;Meyer,
+      <i>CSS: The Definitive Guide</i></p>
+    <p>Erik&nbsp;Ray,
+      <i>Learning XML</i></p>
+  </body>
+</html>
+```
 
 This is the HTML that was produced from the XSL file above. 
 
