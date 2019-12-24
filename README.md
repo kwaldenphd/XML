@@ -495,8 +495,7 @@ exclude-result-prefixes="xs" version="2.0">
 ```
 Now, let’s take a look at the XSL file created for the transformation.
 
-An XSLT file uses the file extension .XSL. Notice that it begins with the same xml declaration
-<?xml version="1.0" encoding="UTF-8"?>. 
+An XSLT file uses the file extension .XSL. Notice that it begins with the same xml declaration `<?xml version="1.0" encoding="UTF-8"?>`. 
 
 The next line identifies the file as an XLS Stylesheet and declares the XSL namespace: 
 
@@ -530,7 +529,7 @@ In many cases, it makes the most sense to start with the root element.
 
 What follows should look familiar. 
 
-We have the basic HTML elements that we reviewed in the last project <head>, <title>, <link> to CSS, <body>, and a <h1>. 
+We have the basic HTML elements that we reviewed in the last project `<head>`, `<title>`, `<link>` to CSS, `<body>`, and a `<h1>`. 
   
 You can include any HTML elements and additional text that you would like in your transformation. 
 
@@ -546,7 +545,7 @@ Between the <xsl:for-each select="book"> and closing </xsl:for-each> you see the
 
 The entire expression is enclosed in <p> tags. 
   
-If you look at the html transformation you will see that this places each author name and title combination in a <p>.
+If you look at the html transformation you will see that this places each author name and title combination in a `<p>`.
 
 <blockquote>Note the &#160 in the XSL file. This is the HTML code for a non-breaking space. It’s also represented as &nbsp; in the HTML transformation. You will see in many languages some characters are reserved and mean something different in the context of the code, so if we want to use the characters without the computer parsing the character, we have to use other means of referencing the characters that we want the computer to type. Ampersands are also reserved. To use an & in HTML or XML you must type &amp; or &#38;. See more at https://www.w3schools.com/html/html_entities.asp.</blockquote>
 
