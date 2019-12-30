@@ -1,5 +1,10 @@
 # XML & XSLT lab
 
+This tutorial was written by [Lindsay K. Mattock](http://lindsaymattock.net) and adapted by [Katherine Walden](https://github.com/kwaldenphd). 
+
+<a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
+This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
 XML is the second markup language that we will be exploring this term. 
 
 Unlike HTML which allowed us to mark up and display information, XML is used for descriptive standards. We’ll use XSLT transformation to create HTML pages of our content, but XML is only used to markup or encode information. For information professionals that work in places like libraries, XML is commonly associated with metadata--the descriptive information needed to describe information. That is, XML is used to encode metadata. 
@@ -26,6 +31,10 @@ By the end of this project you will be able to:
 XML is designed to store and transport data, it does not DO anything - XML is simply information that is wrapped in a set of tags. These tags can be user defined or from a standardized schema (like TEI). So, users of XML are free to develop their own set of tags or content standards in XML to describe whatever kind of information they would like.
 
 <blockquote>XML specification from W3C: http://www.w3.org/TR/REC-xml/</blockquote>
+
+## Acknowledgements
+
+This lab is based on the "Project 4: XML and XSLT" project materials developed by [Lindsay K. Mattock](http://lindsaymattock.net/) for the the [SLIS 5020 Computing Foundations course](http://lindsaymattock.net/computingfoundations.html). 
 
 # XML Versus HTML
 
