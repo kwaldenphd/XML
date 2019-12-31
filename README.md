@@ -36,6 +36,16 @@ XML is designed to store and transport data, it does not DO anything - XML is si
 
 This lab is based on the "Project 4: XML and XSLT" project materials developed by [Lindsay K. Mattock](http://lindsaymattock.net/) for the the [SLIS 5020 Computing Foundations course](http://lindsaymattock.net/computingfoundations.html). 
 
+# Table of Contents
+- [XML Versus HTML](#xml-versus-html)
+  * [XML Example 1](#xml-example-1)
+- [XML Structure](#xml-structure)
+- [XML Example 2](#xml-example-2)
+- [DTD: Document Data Types](#dtd-document-data-types)
+- [Querying, Transforming, and Displaying XML Data Via XSLT](#querying-transforming-and-displaying-xml-data-via-xslt)
+- [On Your Own](#on-your-own)
+- [Lab Questions](#lab-questions)
+
 # XML Versus HTML
 
 According to W3C.....
@@ -411,7 +421,7 @@ Explanation from: http://www.w3schools.com/xml/xml_whatis.asp
 
 58. With this declaration, one of these types must follow the element instructor for the XML document to be valid.
 
-# Querying, Transforming, and Display XML Data Via XSLT
+# Querying, Transforming, and Displaying XML Data Via XSLT
 
 XML is a powerful tool for marking up or encoding documents. Unlike HTML, XML does not display these documents on the web. As we saw with syllabus.xml, if you attempt to open a XML document in your web browser, you will see the plain text version of the document. To present XML data on the web we must transform the XML into HTML we can do this with XSLT. XSLT is the Extensible Stylesheet Language. Like CSS it is a style sheet that allows us to format the presentation of XML data on the web. However, XSLT is a bit more powerful. It is more like a query of the XML document. Like CSS, a single XSLT file can be used to transform multiple XML files as long as the XML is using the same schema. With XSLT we can create queries to pick and choose the elements and data that we would like to represent in our transformation.
 
